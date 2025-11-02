@@ -1,0 +1,168 @@
+/* Dark-first theme with light-blue accent and professional typography */
+
+:root {
+    /* Dark (default) */
+    --bg: #0b1220; /* page background */
+    --surface: #0f1724; /* cards, panels */
+    --text: #e6eef6; /* main text */
+    --muted: #94a3b8; /* secondary text */
+    --border: rgba(255,255,255,0.06);
+    --accent: #74c0fc; /* light blue */
+    --accent-strong: #4dabf7;
+    --radius: 10px;
+    --gap: 1rem;
+    --font-stack: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+/* Light theme (toggle) */
+.theme-light {
+    --bg: #ffffff;
+    --surface: #f8fafc;
+    --text: #0b1220;
+    --muted: #6b7280;
+    --border: rgba(2,6,23,0.06);
+    --accent: #0ea5e9; /* slightly deeper for contrast on light */
+    --accent-strong: #0284c7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-family: var(--font-stack);
+    margin: 0;
+    padding: 2rem;
+    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    transition: background-color 250ms ease, color 250ms ease;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Layout helpers */
+header, footer { padding: 1rem 0; }
+
+h1 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    font-size: 1.8rem;
+}
+
+#message {
+    color: var(--text);
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+}
+
+/* alt state uses the accent color */
+#message.alt { color: var(--accent); }
+
+/* Buttons */
+button {
+    padding: 0.55rem 0.9rem;
+    margin: 0.25rem 0.25rem 0.25rem 0;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+    color: var(--text);
+    cursor: pointer;
+    font-size: 0.98rem;
+    transition: transform 120ms ease, box-shadow 160ms ease, background 120ms ease;
+}
+
+button:hover { transform: translateY(-1px); }
+
+/* Primary button style when needed */
+.btn-primary {
+    background: linear-gradient(180deg, var(--accent), var(--accent-strong));
+    color: #04263b;
+    border: none;
+    box-shadow: 0 6px 18px rgba(11, 27, 40, 0.35);
+}
+
+/* Input */
+input {
+    padding: 0.55rem;
+    margin: 0.25rem 0;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    font-size: 1rem;
+    width: 250px;
+    transition: box-shadow 120ms ease, border-color 120ms ease;
+}
+
+input::placeholder { color: var(--muted); }
+
+/* Header / Footer */
+header { border-bottom: 1px solid var(--border); margin-bottom: calc(var(--gap) * 1.25); }
+footer { border-top: 1px solid var(--border); margin-top: calc(var(--gap) * 1.5); color: var(--muted); text-align: center; }
+
+/* Simple centered container in main */
+main { max-width: 900px; margin: 0 auto; }
+
+/* Cards */
+.card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 1rem;
+    border: 1px solid var(--border);
+    box-shadow: 0 6px 18px rgba(2,6,23,0.35);
+}
+
+/* Utility */
+.muted { color: var(--muted); }
+
+/* Responsiveness */
+@media (max-width: 640px) {
+    body { padding: 1rem; }
+    h1 { font-size: 1.4rem; }
+    input { width: 100%; }
+}
+
+/* Make the light-theme toggle (when class present on body) look like the previous 'light' default */
+.theme-light h1, .theme-light #message, .theme-light button, .theme-light input { transition: background-color 200ms ease, color 200ms ease; }
+
+/* Navigation */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 1rem; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.site-title { margin: 0; font-size: 1.1rem; }
+.site-nav .nav-list { list-style: none; display: flex; gap: 0.5rem; margin: 0; padding: 0; }
+.site-nav a { color: var(--muted); text-decoration: none; padding: 0.45rem 0.65rem; border-radius: 6px; transition: color 120ms ease, background 120ms ease; }
+.site-nav a:hover, .site-nav a:focus { color: var(--text); background: rgba(255,255,255,0.02); }
+.site-nav a.active { color: var(--accent); font-weight: 600; }
+
+/* Hero */
+.hero { padding: 2.25rem 0; }
+.hero-content { display: flex; gap: 2rem; align-items: center; margin-bottom: 1.5rem; }
+.hero-text { flex: 1; }
+.hero h2 { margin: 0 0 0.5rem 0; font-size: 1.6rem; }
+.lead { color: var(--muted); margin-bottom: 1rem; }
+.hero-actions { display: flex; gap: 0.5rem; align-items: center; }
+.profile-image { width: 50px !important; height: 50px !important; border-radius: 50%; object-fit: cover; border: 2px solid var(--accent); box-shadow: 0 6px 18px rgba(2,6,23,0.35); }
+.button-link { display: inline-block; padding: 0.55rem 0.9rem; border-radius: 8px; background: transparent; color: var(--accent); border: 1px solid rgba(255,255,255,0.04); text-decoration: none; }
+
+/* Sections */
+.section { margin: 1.25rem 0; }
+
+/* Projects grid */
+.projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+.project-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.project-card .thumb { height: 140px; border-radius: 8px; background: linear-gradient(180deg, rgba(11,18,30,0.2), rgba(11,18,30,0.08)); display:flex; align-items:center; justify-content:center; color:var(--muted); font-size:0.9rem; overflow:hidden; }
+.project-card .thumb img.thumb-img { width:100%; height:100%; object-fit:cover; display:block; border-radius:8px; }
+.project-card h4 { margin: 0; font-size: 1.05rem; }
+.project-meta { display:flex; gap:0.5rem; align-items:center; color:var(--muted); font-size:0.9rem; }
+
+/* Contact form */
+.contact-form { display:flex; flex-direction:column; gap:0.65rem; max-width:640px; }
+.contact-form input, .contact-form textarea { width:100%; }
+.contact-form textarea { min-height:120px; resize:vertical; }
+
+/* Utility: small responsive tweaks */
+@media (max-width:640px) {
+    .header-inner { flex-direction: column; align-items: flex-start; }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+}
+

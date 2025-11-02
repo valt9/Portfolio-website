@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — My Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container header-inner">
+            <h1 class="site-title">My Portfolio</h1>
+            <nav class="site-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container section">
+            <h2>Projects</h2>
+            <p class="muted">Here are some projects I've worked on so far.</p>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="thumb">
+                        <img src="images/project1.jpeg" alt="Screenshot of Project One showing the swerve-drive robot" class="thumb-img">
+                    </div>
+                    <h4>Project One — Swerve Drive</h4>
+                    <p class="muted">The project was made for senior capstone project at North Montco Technical Career Center.</p>
+                    <p>This is a robot that is designed to have 4 wheels and each wheel has its own steering and drive motor. However, instead of having a motor for each action it uses differential gearing to steer and drive at the same time.</p>
+                    <div class="project-meta">
+                        <a href="https://github.com/valt9/Diffyswervecode" target="_blank" rel="noopener noreferrer" aria-label="Project One source on GitHub">Source</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="thumb">
+                        <img src="images/project2.jpeg" alt="Screenshot of Project Two demonstrating the project device" class="thumb-img">
+                    </div>
+                    <h4>Project Two — Maji Sense</h4>
+                    <p class="muted">This was developed for my entrepreneurship class where I had to develop a solution to a global problem, however keeping it local.</p>
+                    <p>The product that was designed to combat my issue measured the pH of the water, turbidity, and temperature.</p>
+                    <div class="project-meta">
+                        <a href="https://github.com/valt9/MajiSense" target="_blank" rel="noopener noreferrer" aria-label="Project source on GitHub">Source</a>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="thumb">
+                        <img src="images/2165022.png" alt="Screenshot of Project Three showing API implementation" class="thumb-img">
+                    </div>
+                    <h4>Project Three - Learning how to use APIs in python</h4>
+                    <p class="muted">This was tasked us in my Software and Data Engineering Technology class</p>
+                    <p>We were tasked to make programs to manipulate the data obtained by the API and spit out the information in the terminal, but neater and easier format.</p>
+                    <div class="project-meta">
+                        <a href="https://github.com/valt9/API-projects" target="_blank" rel="noopener noreferrer" aria-label="Project source on GitHub">Source</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Soumil Dusara - 2025</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
